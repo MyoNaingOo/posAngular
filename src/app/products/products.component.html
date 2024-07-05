@@ -1,0 +1,65 @@
+<div class="float-right flex">
+  <div class="flex flex-row flex-wrap justify-center items-center w-8/12">
+    @for (item of items; track $index) {
+
+    <app-card [cardName]="'product ' + item" />
+
+    }
+  </div>
+  <div class="w-4/12 bg-gray-700 h-screen">
+    <div class="">
+      <table
+        class="w-full text-sm text-left rtl:text-right "
+      >
+        <thead
+        >
+          <tr>
+            <th scope="col" class="px-6 py-3">Product name</th>
+            <th scope="col" class="px-6 py-3">Quantity</th>
+            <th scope="col" class="px-6 py-3">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th
+              scope="row"
+            >
+              Apple MacBook Pro 17"
+            </th>
+
+            <td>2</td>
+            <td>2999</td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+            >
+              Microsoft Surface Pro
+            </th>
+
+            <td>2</td>
+            <td>1999</td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+
+            >
+              Magic Mouse 2
+            </th>
+
+            <td>2</td>
+            <td>99</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th >Total</th>
+            <td></td>
+            <td>132600</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
