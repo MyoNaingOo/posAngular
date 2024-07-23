@@ -15,65 +15,57 @@
       <span>category12</span>
     </div>
 
-    @for (item of items; track $index) {
+    @for (product of products; track $index) {
 
-    <app-card [cardName]="'product ' + item" />
+    <div (click)="addProduct(product)">
+      <app-card [cardName]="product.name" [cardImg]="product.img" />
+    </div>
 
     }
   </div>
-
-  <!-- drawer init and toggle -->
-  <div class="text-center">
-    <button
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      type="button"
-      data-drawer-target="drawer-right-example"
-      data-drawer-show="drawer-right-example"
-      data-drawer-placement="right"
-      aria-controls="drawer-right-example"
-    >
-      Show right drawer
-    </button>
-  </div>
-
-  <!-- change the right -->
-  <!-- drawer component -->
   <div
     id="drawer-right-example"
-    class="fixed top-0 right-24 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-7/12 dark:bg-gray-800"
+    class="fixed top-0 right-24 z-40 h-screen p-2 overflow-y-auto transition-transform translate-x-full bg-gray-100 w-7/12 dark:bg-gray-800"
     tabindex="-1"
     aria-labelledby="drawer-right-label"
   >
-    <!-- <h5
-      id="drawer-right-label"
-
-    </h5> -->
-    <button
-      type="button"
-      data-drawer-hide="drawer-right-example"
-      aria-controls="drawer-right-example"
-      class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
-    >
-      <svg
-        class="w-3 h-3"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 14 14"
+    <div class="mb-10">
+      <button
+        class="bg-gray-300 hover:bg-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 start-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+        type="button"
+        data-drawer-target="drawer-right-example"
+        data-drawer-show="drawer-right-example"
+        data-drawer-placement="right"
+        aria-controls="drawer-right-example"
       >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-        />
-      </svg>
-      <span class="sr-only">Close menu</span>
-    </button>
+        <fa-icon [icon]="angle_left"></fa-icon>
+      </button>
+      <button
+        type="button"
+        data-drawer-hide="drawer-right-example"
+        aria-controls="drawer-right-example"
+        class="bg-gray-300 hover:bg-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+      >
+        <fa-icon [icon]="angle_right"></fa-icon>
+      </button>
+    </div>
+    <div class="space-y-2">
+      @for (product of saleCard; track $index) {
+      <div class="flex justify-between items-center ">
+        <img src="" class="w-16 h-16" />
+        <p>{{ product.name }}</p>
 
-<div>
-  <p>hello</p>
-</div>
+        <fa-icon [icon]="minus" (click)="changeQuantity(false,product.id)" />
+        <p> {{ product.quantity }} </p>
+        <fa-icon [icon]="plus" (click)="changeQuantity(true,product.id)" />
+        <p>{{ product.price}} </p>
+
+
+      </div>
+      }
+
+      <button (click)="clean()" >Clean</button>
+      <button (click)="sale()" >Sale</button>
+    </div>
   </div>
 </div>

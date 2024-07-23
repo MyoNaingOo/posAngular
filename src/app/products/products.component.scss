@@ -15,3 +15,8 @@ span{
 .category{
   @apply w-11/12 space-x-5 m-3 text-center overflow-x-scroll overflow-y-hidden pb-5;
 }
+
+
+button{
+  @apply py-2 px-4 rounded shadow-md ;
+}
