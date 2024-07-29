@@ -1,22 +1,29 @@
-td{
-text-align: end;
-@apply px-6 py-4;
-}
-tr{
-  @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
-}
-th{
-  @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white;
+
+
+span {
+  @apply border border-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 dark:border-gray-700  rounded-full py-2  px-5 ;
 }
 
-span{
-  @apply text-gray-900  dark:text-white bg-gray-400 py-2 px-5;
-}
-.category{
-  @apply w-11/12 space-x-5 m-3 text-center overflow-x-scroll overflow-y-hidden pb-5;
+.category {
+  @apply w-full space-x-5 mb-2 p-2 pb-4  text-center overflow-x-scroll overflow-y-hidden container;
 }
 
 
-button{
-  @apply py-2 px-4 rounded shadow-md ;
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  /* or add it to the track */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 10px;
+  margin: 20px;
+  @apply shadow-inner  shadow-gray-700 ;
+}
+/* Add a thumb */
+.scrollbar::-webkit-scrollbar-thumb {
+  // background: #000;
+  @apply bg-black dark:bg-gray-200;
+  border-radius: 10px;
+
 }

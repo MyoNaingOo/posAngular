@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { initFlowbite } from 'flowbite';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,13 +12,10 @@ import { ProductModule } from '../product/product.module';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
   items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
 
-  constructor() {
-    initFlowbite();
-  }
 
   products: ProductModule[] = [
     {
@@ -179,6 +176,9 @@ export class ProductsComponent {
 
   ]
 
+  ngOnInit(): void {
+    initFlowbite();
+  }
 
 
   angle_left: any = faAngleLeft;
@@ -207,6 +207,7 @@ export class ProductsComponent {
         if (plus) {
           product.quantity = product.quantity + 1
         } else {
+          if(product.quantity > 1)
           product.quantity = product.quantity - 1
         }
 

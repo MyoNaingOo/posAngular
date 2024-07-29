@@ -1,6 +1,6 @@
 <div class="float-right flex">
   <div class="flex flex-row flex-wrap justify-center items-center w-11/12">
-    <div class="category container">
+    <div class="category scrollbar ">
       <span>category1</span>
       <span>category2</span>
       <span>category3</span>
@@ -23,34 +23,33 @@
 
     }
   </div>
-  <div
-    id="drawer-right-example"
-    class="fixed top-0 right-24 z-40 h-screen p-2 overflow-y-auto transition-transform translate-x-full bg-gray-100 w-7/12 dark:bg-gray-800"
-    tabindex="-1"
-    aria-labelledby="drawer-right-label"
-  >
+
+
+
+
+
+
+
+
+
+
+  <div id="drawer-right"
+    class="fixed top-16 pb-20 rounded right-24 z-40 h-screen p-2 overflow-y-auto  transition-transform translate-x-full bg-gray-100 w-7/12 dark:bg-gray-800"
+    tabindex="-1" aria-labelledby="drawer-right-label">
     <div class="mb-10">
       <button
-        class="bg-gray-300 hover:bg-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 start-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
-        type="button"
-        data-drawer-target="drawer-right-example"
-        data-drawer-show="drawer-right-example"
-        data-drawer-placement="right"
-        aria-controls="drawer-right-example"
-      >
+        class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-900 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 start-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+        type="button" data-drawer-target="drawer-right" data-drawer-show="drawer-right" data-drawer-placement="right"
+        aria-controls="drawer-right">
         <fa-icon [icon]="angle_left"></fa-icon>
       </button>
-      <button
-        type="button"
-        data-drawer-hide="drawer-right-example"
-        aria-controls="drawer-right-example"
-        class="bg-gray-300 hover:bg-gray-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
-      >
+      <button type="button" data-drawer-hide="drawer-right" aria-controls="drawer-right"
+        class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-900 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
         <fa-icon [icon]="angle_right"></fa-icon>
       </button>
     </div>
     <div class="space-y-2">
-      @for (product of saleCard; track $index) {
+      <!-- @for (product of saleCard; track $index) {
       <div class="flex justify-between items-center ">
         <img src="" class="w-16 h-16" />
         <p>{{ product.name }}</p>
@@ -62,10 +61,28 @@
 
 
       </div>
-      }
+      } -->
 
-      <button (click)="clean()" >Clean</button>
-      <button (click)="sale()" >Sale</button>
+
+      <table class="table-fixed w-full ">
+        <tbody>
+          @for (product of saleCard; track $index) {
+
+          <tr class="">
+            <img src="" class="w-16 h-16 my-1" />
+            <td>{{ product.name }}</td>
+
+            <td><fa-icon [icon]="minus" (click)="changeQuantity(false,product.id)" /></td>
+            <td> {{ product.quantity }} </td>
+            <td><fa-icon [icon]="plus" (click)="changeQuantity(true,product.id)" /></td>
+            <td>{{ product.price}} </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+
+      <button (click)="clean()">Clean</button>
+      <button (click)="sale()">Sale</button>
     </div>
   </div>
 </div>
