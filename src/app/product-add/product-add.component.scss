@@ -1,0 +1,13 @@
+form {
+    @apply flex  space-y-2 xl:space-y-4 pt-2  md:pt-4 flex-col items-center justify-center container h-auto;
+  }
+
+
+
+input ,textarea{
+  @apply w-11/12 py-2 px-2 bg-gray-100 border
+   border-gray-300 text-gray-900 text-sm
+   focus:ring-gray-500 focus:border-gray-500
+   dark:bg-gray-700 dark:border-gray-600 rounded-md
+  dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500;
+}

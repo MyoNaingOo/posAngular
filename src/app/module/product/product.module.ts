@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserModule } from '../user/user.module';
+import { PriceModule } from '../price/price.module';
 
 
 
@@ -12,9 +14,11 @@ import { CommonModule } from '@angular/common';
 export class ProductModule {
   id!: number;
   name!: string;
-  price!: number;
+  price!: PriceModule;
+  user?:UserModule;
+  balance?: number;
   img!:string;
   description!: string;
   quantity ?: number=1;
-
+  time?:any;
  }

@@ -1,0 +1,35 @@
+
+
+<div class="flex items-stretch">
+
+  <form class="w-6/12">
+    <h2 class="text-xl font-bold">Product Add </h2>
+    
+    <input type="text" name="name" id="name" placeholder="Name" />
+    <input type="number" name="price" min="1" id="price" placeholder="Price" />
+    <label for="img" class="dark-bg w-11/12  text-center  py-2  rounded-md"> <fa-icon [icon]="upload"/> Image File</label>
+    <input type="file" name="img" id="img" class="hidden" (change)="selectFle($event)"/>
+    <textarea name="description" id="description" cols="24"  placeholder="Description"></textarea>
+    <button type="submit" class="dark-bg  w-11/12  text-center  py-2  rounded-md">ADD</button>
+    
+    
+  </form>
+  
+  
+  <div class="w-3/12 justify-center items-center flex p-5 border-dashed border border-black " >
+    @if (path) {
+    <img [src]="path" alt="" width="300" height="300">
+  }@else {
+    <fa-icon [icon]="plus" class="text-9xl font-serif text-gray-300 dark:text-gray-800" />
+  }
+  </div>
+  
+
+</div>
+
+<!--   id!: number;
+  name!: string;
+  price!: number;
+  img!:string;
+  description!: string;
+  quantity ?: number=1; -->

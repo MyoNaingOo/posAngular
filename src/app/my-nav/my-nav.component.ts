@@ -18,17 +18,17 @@ export class MyNavComponent {
       path: ""
     },
     {
+      name: "Products",
+      path: "products"
+    },
+    {
       name: "ABOUT",
       path: "about"
     },
     {
-      name: "SALE",
-      path: "sale"
-    },
-    {
       name: "STORE",
-      path: "store"
-    }
+      path: "productAdd"
+    },
   ]
   sun: any = faSun
   moon: any = faMoon

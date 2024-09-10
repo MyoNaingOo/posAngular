@@ -23,9 +23,9 @@ body {
   }
   
   .dark-bg {
-    @apply bg-gray-900 text-white dark:bg-gray-700;
+    @apply bg-black text-white dark:bg-gray-800;
   }
   
   .bg-dark-light {
-    @apply bg-gray-100 dark:bg-gray-700;
+    @apply bg-gray-100 dark:bg-gray-800;
   }
