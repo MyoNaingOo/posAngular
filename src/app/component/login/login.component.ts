@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { UserModule } from '../module/user/user.module';
+import { UserModule } from '../../module/user/user.module';
 @Component({
   selector: 'app-login',
   standalone: true,

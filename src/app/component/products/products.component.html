@@ -49,12 +49,12 @@
       </button>
     </div>
     <div class="space-y-2">
-      
-              <form #f="ngForm" (submit)="findpro(f)" >
-      
-                <input type="text" placeholder="scan product qr or bar code "name="code" id="code" #code="ngModel" ngModel />
-      
-              </form>
+
+      <form #f="ngForm" (submit)="findpro(f)">
+
+        <input type="text" placeholder="scan product qr or bar code " name="code" id="code" #code="ngModel" ngModel />
+
+      </form>
       <table class="table-fixed w-full ">
 
 
@@ -65,28 +65,55 @@
           <tr class="">
             <img src="" class="w-16 h-16 my-1" />
             <td>{{ product.name }}</td>
-            <td class="text-red-600 line-through " > {{ product.price.org_price }} </td>
+
+
+            @if(product.price.promo_price == undefined){
+            <td class=" "> {{ product.price.org_price }} </td>
+            <td></td>
+            <td> <input type="number" [(ngModel)]="product.quantity" class="w-24" min="1"> </td>
+
+            @if(product.quantity != undefined && product.price.org_price != undefined && product.price.promo_price ==
+            undefined){
+            <td> {{ product.quantity * product.price.org_price }} </td>
+
+            }
+
+
+            } @else {
+
+            <td class="text-red-600 line-through "> {{ product.price.org_price }} </td>
             <td>{{ product.price.promo_price}} </td>
             <td> <input type="number" [(ngModel)]="product.quantity" class="w-24" min="1"> </td>
-           @if(product.quantity != undefined && product.price.promo_price != undefined ) {
-             <td> {{   product.quantity * product.price.promo_price }} </td>
-           }
-           @if(product.quantity != undefined && product.price.org_price != undefined && product.price.promo_price == undefined){
-            <td> {{   product.quantity * product.price.org_price }} </td>
+            @if(product.quantity != undefined && product.price.promo_price != undefined ) {
+            <td> {{ product.quantity * product.price.promo_price }} </td>
+            }
+            
+            @if(product.quantity != undefined && product.price.org_price != undefined && product.price.promo_price ==
+            undefined){
+            <td> {{ product.quantity * product.price.org_price }} </td>
 
-           }
+            }
+            }
           </tr>
           }
         </tbody>
         <tfoot>
 
+          <td></td>
+          <td>Total : </td>
+          <td></td>
+          <td></td>
+          <p class="float-end flex justify-end text-end" >{{ total }} </p>
         </tfoot>
-
+        
+        
 
       </table>
 
       <button (click)="clean()">Clean</button>
       <button (click)="sale()">Sale</button>
+      <button (click)="totalprices()">total</button>
+
     </div>
   </div>
 </div>

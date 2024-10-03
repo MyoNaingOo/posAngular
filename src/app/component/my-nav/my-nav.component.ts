@@ -22,12 +22,12 @@ export class MyNavComponent {
       path: "products"
     },
     {
-      name: "ABOUT",
-      path: "about"
-    },
-    {
       name: "STORE",
       path: "productAdd"
+    },
+    {
+      name: "ABOUT",
+      path: "about"
     },
   ]
   sun: any = faSun

@@ -3,7 +3,7 @@ import { CardComponent } from '../card/card.component';
 import { initFlowbite } from 'flowbite';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faA, faAngleLeft, faAngleRight, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { ProductModule } from '../module/product/product.module';
+import { ProductModule } from '../../module/product/product.module';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -245,23 +245,31 @@ export class ProductsComponent implements OnInit {
 
     this.total = 0
 
-    // this.saleCard.map(
-    //   pro => {
+    this.saleCard.map(
+      pro => {
 
-    //     if (pro.promo_price == 0 || pro.promo_price == undefined ||
-    //       pro.promo_price == null) {
-    //       // <p>{{ product.org_price }}</p>
-    //       if (pro.org_price != undefined)
-    //         this.total = this.total + pro.org_price
+        if (pro.price.promo_price == 0 || pro.price.promo_price == undefined ||
+          pro.price.promo_price == null) {
+          // <p>{{ product.org_price }}</p>
+          if (pro.quantity != undefined && pro.price.org_price != undefined)
+            
+            var  price:any = pro.price.org_price * pro.quantity
+            console.log(pro.quantity);
+          this.total = this.total + price
 
-    //     } else {
-    //       // <p>{{ product.promo_price }}</p>
-    //       this.total = this.total + pro.promo_price
+        } else {
+          if (pro.quantity != undefined && pro.price.promo_price != undefined)
+           var  promo_price:any = pro.price.promo_price * pro.quantity
+          console.log(pro.quantity);
+          this.total = this.total + promo_price
 
-    //     }
+        }
 
-    //   }
-    // )
+      }
+    )
+
+    console.log(this.total);
+    
 
 
   }
